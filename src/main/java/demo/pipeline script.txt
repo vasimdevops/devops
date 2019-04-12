@@ -1,0 +1,28 @@
+node{
+    stage('Downloading the code'){
+    echo "downloading the code"
+    git credentialsId: 'fdd50fc7-2f84-4f13-a1e6-587313ef56e6', url: 'https://github.com/vasimdevops/devops.git'
+    }
+    stage('compiling the code'){
+    echo "compiling the code"    
+    }
+    stage('testing the code'){
+    echo "testing the code"
+    }
+    stage ('packaging the code'){
+    echo "packaging the code"
+    }
+    stage ('validating the code'){
+    echo "validating the code"    
+    sh ('mvn validate')
+    }
+    stage ('compiling the code'){
+    echo "compiling the code"
+    sh ('mvn compile')
+    }
+    stage('testing the code'){
+    echo "testing the code"
+    sh ('mvn test')
+    }
+    
+}
